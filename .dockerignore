@@ -1,5 +1,2 @@
-**/.git
-OctoAISpaceBuilder/
-octopus-argocd-gateway/
-.idea/
-.github/
+*
+!docker/
