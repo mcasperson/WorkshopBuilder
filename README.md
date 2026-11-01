@@ -20,7 +20,7 @@ docker run --rm --platform linux/amd64 \
   -e OCTOPUS_CLI_API_KEY \
   -e OCTOPUS_CLI_SERVER \
   ghcr.io/mcasperson/workshopbuilder:latest \
-  --query "Your query goes here"
+  --query "Create an Argo CD Manifest Update project called \"16. Argo CD Manifest Update\" with the slug \"argo-cd-octopub-manifest\" using a Git Connection called \"Mock\" with a random username and the allowed repository \"https://mockgit.octopusdemos.com/*\" in the space \"Scratchpad\""
 ```
 
 Passing `-e NAME` without a value copies the variable from your shell, which keeps secrets out of your shell history.
