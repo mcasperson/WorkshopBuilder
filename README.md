@@ -15,7 +15,7 @@ export ANTHROPIC_API_KEY=sk-ant-...
 export OCTOPUS_CLI_API_KEY=API-...
 export OCTOPUS_CLI_SERVER=https://your-instance.octopus.app
 
-docker run --rm --platform linux/amd64 \
+docker run --rm \
   -e ANTHROPIC_API_KEY \
   -e OCTOPUS_CLI_API_KEY \
   -e OCTOPUS_CLI_SERVER \
@@ -25,7 +25,7 @@ docker run --rm --platform linux/amd64 \
 
 Passing `-e NAME` without a value copies the variable from your shell, which keeps secrets out of your shell history.
 
-The image is amd64 only. On Apple Silicon Macs it runs under emulation; enable **Use Rosetta for x86_64/amd64 emulation on Apple Silicon** in Docker Desktop's settings for the best compatibility.
+The image is published for both `linux/amd64` and `linux/arm64`, so it runs natively on Apple Silicon Macs.
 
 ### Required environment variables
 
@@ -53,7 +53,7 @@ These are set in the image and can be overridden with `-e`:
 ## Building the image
 
 ```bash
-docker build --platform linux/amd64 -t workshopbuilder .
+docker build -t workshopbuilder .
 ```
 
 The multi-stage `Dockerfile` fetches and builds all three projects, so no local checkouts are needed. The GitHub workflow in `.github/workflows/build.yaml` builds the image and publishes it to `ghcr.io/mcasperson/workshopbuilder`.
