@@ -16,6 +16,9 @@ export OCTOPUS_CLI_API_KEY=API-...
 export OCTOPUS_CLI_SERVER=https://your-instance.octopus.app
 export MOCKGIT_API_URL=https://mockgit.octopusdemos.com
 export MOCKGIT_API_KEY=your-mockgit-api-key
+# This is the default suffix added to the prompt. It is typically used to define the space that the prompt is being executed in.
+# Having this separate from the prompt allows the prompt to be reused in different spaces without having to modify the prompt itself.
+export PROMPT_SUFFIX=" The current space is \"Scratchpad\"."
 
 docker run --rm --pull always \
   -v workshopbuilder-data:/var/lib/azurite \
@@ -24,7 +27,7 @@ docker run --rm --pull always \
   -e OCTOPUS_CLI_SERVER \
   -e MOCKGIT_API_URL \
   -e MOCKGIT_API_KEY \
-  -e PROMPT_SUFFIX=" The current space is \"Scratchpad\"." \
+  -e PROMPT_SUFFIX \
   ghcr.io/mcasperson/workshopbuilder:latest \
   --query "Create an Argo CD Manifest Update project called \"Argo CD Manifest Update\" with the slug \"argo-cd-octopub-manifest\" using a Git Connection called \"Mock\" with a random username and the allowed repository \"https://mockgit.octopusdemos.com/*\""
 ```
