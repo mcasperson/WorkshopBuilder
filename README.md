@@ -24,7 +24,7 @@ docker run --rm \
   -e MOCKGIT_API_URL \
   -e MOCKGIT_API_KEY \
   ghcr.io/mcasperson/workshopbuilder:latest \
-  --query "Create an Argo CD Manifest Update project called \"16. Argo CD Manifest Update\" with the slug \"argo-cd-octopub-manifest\" using a Git Connection called \"Mock\" with a random username and the allowed repository \"https://mockgit.octopusdemos.com/*\" in the space \"Scratchpad\""
+  --query "Create an Argo CD Manifest Update project called \"Argo CD Manifest Update\" with the slug \"argo-cd-octopub-manifest\" using a Git Connection called \"Mock\" with a random username and the allowed repository \"https://mockgit.octopusdemos.com/*\" in the space \"Scratchpad\""
 ```
 
 Passing `-e NAME` without a value copies the variable from your shell, which keeps secrets out of your shell history.
