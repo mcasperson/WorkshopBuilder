@@ -14,11 +14,15 @@ supervisord runs these services in the background. Arguments passed to `docker r
 export ANTHROPIC_API_KEY=sk-ant-...
 export OCTOPUS_CLI_API_KEY=API-...
 export OCTOPUS_CLI_SERVER=https://your-instance.octopus.app
+export MOCKGIT_API_URL=https://your-mockgit-instance
+export MOCKGIT_API_KEY=your-mockgit-api-key
 
 docker run --rm \
   -e ANTHROPIC_API_KEY \
   -e OCTOPUS_CLI_API_KEY \
   -e OCTOPUS_CLI_SERVER \
+  -e MOCKGIT_API_URL \
+  -e MOCKGIT_API_KEY \
   ghcr.io/mcasperson/workshopbuilder:latest \
   --query "Create an Argo CD Manifest Update project called \"16. Argo CD Manifest Update\" with the slug \"argo-cd-octopub-manifest\" using a Git Connection called \"Mock\" with a random username and the allowed repository \"https://mockgit.octopusdemos.com/*\" in the space \"Scratchpad\""
 ```
@@ -48,6 +52,8 @@ These are set in the image and can be overridden with `-e`:
 | `PROJECT_GEN_SERVICE` | `anthropic_project` |
 | `APPLICATION_SPACEBUILDER_URL` | `http://localhost:8080` |
 | `MOCKARGO_API_URL` | `http://localhost:8085` |
+| `MOCKGIT_API_URL` | none; pass it with `-e MOCKGIT_API_URL` |
+| `MOCKGIT_API_KEY` | none; pass it with `-e MOCKGIT_API_KEY` |
 | `AzureWebJobsStorage` | Connection string for the bundled Azurite instance |
 
 ## Building the image
