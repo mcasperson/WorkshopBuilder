@@ -23,7 +23,7 @@ docker run --rm --pull always \
   -e OCTOPUS_CLI_SERVER \
   -e MOCKGIT_API_URL \
   -e MOCKGIT_API_KEY \
-  -e PROMPT_SUFFIX="The current space is \"Scratchpad\"" \
+  -e PROMPT_SUFFIX=" The current space is \"Scratchpad\"." \
   ghcr.io/mcasperson/workshopbuilder:latest \
   --query "Create an Argo CD Manifest Update project called \"Argo CD Manifest Update\" with the slug \"argo-cd-octopub-manifest\" using a Git Connection called \"Mock\" with a random username and the allowed repository \"https://mockgit.octopusdemos.com/*\""
 ```

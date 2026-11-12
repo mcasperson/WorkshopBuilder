@@ -15,11 +15,22 @@ done
 mkdir -p /var/log/supervisor /var/lib/azurite
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 
-# Append PROMPT_SUFFIX (if set and non-empty) to the prompt argument
-if [ -n "$PROMPT_SUFFIX" ] && [ "$#" -gt 0 ]; then
-    prompt="$1$PROMPT_SUFFIX"
-    shift
-    set -- "$prompt" "$@"
+# Append PROMPT_SUFFIX (if set and non-empty) to the value following --query
+if [ -n "$PROMPT_SUFFIX" ]; then
+    n=$#
+    next_is_query=0
+    while [ "$n" -gt 0 ]; do
+        arg="$1"
+        shift
+        if [ "$next_is_query" -eq 1 ]; then
+            arg="$arg$PROMPT_SUFFIX"
+            next_is_query=0
+        elif [ "$arg" = "--query" ]; then
+            next_is_query=1
+        fi
+        set -- "$@" "$arg"
+        n=$((n - 1))
+    done
 fi
 
 # Run OctopusCopilot with the arguments passed to the container
