@@ -18,6 +18,7 @@ export MOCKGIT_API_URL=https://your-mockgit-instance
 export MOCKGIT_API_KEY=your-mockgit-api-key
 
 docker run --rm --pull always \
+  -v workshopbuilder-data:/var/lib/azurite \
   -e ANTHROPIC_API_KEY \
   -e OCTOPUS_CLI_API_KEY \
   -e OCTOPUS_CLI_SERVER \
