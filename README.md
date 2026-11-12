@@ -14,7 +14,7 @@ supervisord runs these services in the background. Arguments passed to `docker r
 export ANTHROPIC_API_KEY=sk-ant-...
 export OCTOPUS_CLI_API_KEY=API-...
 export OCTOPUS_CLI_SERVER=https://your-instance.octopus.app
-export MOCKGIT_API_URL=https://your-mockgit-instance
+export MOCKGIT_API_URL=https://mockgit.octopusdemos.com
 export MOCKGIT_API_KEY=your-mockgit-api-key
 
 docker run --rm --pull always \
@@ -22,7 +22,7 @@ docker run --rm --pull always \
   -e ANTHROPIC_API_KEY \
   -e OCTOPUS_CLI_API_KEY \
   -e OCTOPUS_CLI_SERVER \
-  -e MOCKGIT_API_URL="https://mockgit.octopusdemos.com" \
+  -e MOCKGIT_API_URL \
   -e MOCKGIT_API_KEY \
   -e PROMPT_SUFFIX=" The current space is \"Scratchpad\"." \
   ghcr.io/mcasperson/workshopbuilder:latest \
