@@ -22,7 +22,7 @@ docker run --rm --pull always \
   -e ANTHROPIC_API_KEY \
   -e OCTOPUS_CLI_API_KEY \
   -e OCTOPUS_CLI_SERVER \
-  -e MOCKGIT_API_URL \
+  -e MOCKGIT_API_URL="https://mockgit.octopusdemos.com" \
   -e MOCKGIT_API_KEY \
   -e PROMPT_SUFFIX=" The current space is \"Scratchpad\"." \
   ghcr.io/mcasperson/workshopbuilder:latest \
